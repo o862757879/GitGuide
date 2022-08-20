@@ -134,9 +134,12 @@ git push -u origin main								## Push to remote repo
 ## Link:
 ## https://git-scm.com/docs/git
 ## https://freetuts.net/hoc-git/git-can-ban
+## https://freetuts.net/git-lenh-merge-branch-xu-ly-conflict-1076.html
 ## https://www.tutorialspoint.com/git/index.htm
 ## https://xuanthulab.net/lenh-git-init-tao-du-an-git-moi.html
 ## 
+## https://learngitbranching.js.org/?locale=vi
+##
 ## git fetch: https://vn.got-it.ai/blog/git-fetch-la-gi-phan-biet-git-fetch-va-git-pull
 ## git pull: https://vn.got-it.ai/blog/git-pull-la-gi-mo-hinh-hoat-dong-cua-lenh-git-pull
 ## Link video ref: https://www.youtube.com/watch?v=1JuYQgpbrW0&t=448s
