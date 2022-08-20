@@ -144,3 +144,6 @@ git push -u origin main								## Push to remote repo
 git add .
 git commit -m "Add link"
 git push -u origin main
+
+git branch -d task1
+git branch -D task1
