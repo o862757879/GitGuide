@@ -1,0 +1,146 @@
+#########################
+## Lesson 1: Git bash at any folder
+git --version
+git log
+git config
+
+## Lesson 2: Config some parameter
+## Config at SYSTEM LEVEL => gitconfig at GIT installed folder
+## END Config at SYSTEM LEVEL => gitconfig at GIT installed folder
+
+## Config at GlOBAL LEVEL => Create .gitconfig at Home (~) folder of User Home Dir
+## https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
+git config --global user.name o862757879
+git config --global user.email o862757879@gmail.com
+
+git config --global core.excludesfile ~/.gitignore_global
+## git check-ignore -v [FILE NAME]
+## END Config at GlOBAL LEVEL => .gitconfig at Home (~) folder of User Home Dir
+
+## Config at LOCAL LEVEL => .gitconfig at working dir
+## END Config at LOCAL LEVEL => .gitconfig at working dir
+
+## Show parameter by LEVEL
+git config --list --show-origin
+git config --list --show-scope
+#########################
+
+#########################
+## Lesson 3: Start
+echo "GitGuide" >> README.md
+echo "Git guide: Parameter & basic command" >> README.md
+## cat README.md
+
+git init							## Init master(local) = Working (local)
+## git add README.md				## Add only 1 file: Working (local) -> Staging (local)
+git add .							## Add all files & folder: Working (local) -> Staging (local)
+
+git commit -m "1st commit"			## Staging (local) -> master (local)
+git branch -M main					## Force rename master (local) to main (local)
+git remote add origin https://github.com/o862757879/GitGuide.git		## Add tag origin for repo URL
+git push -u origin main				## Push main (local) -> repo URL
+## If not rename, we will have master branch, then repo remote will have 1 branch: master
+
+#########################
+## Lesson 4: Update local file then push to remote repo 
+## Update CMD then
+git add .							## Update file CMD again
+git commit -m "Lesson 4 commit"		## Push to local repo
+git push -u origin main				## Push to remote repo
+#########################
+
+#########################
+## Lesson 5: Merge branch
+git branch task1					## Create branch task1
+git branch task2					## Create branch task2
+git branch 							## Show branchs
+ls -la								## Show all files
+
+git checkout task1					## Switch task1(local) branch
+echo "# Create file at task1" >> Task1.txt
+git add .							## Update file CMD again
+git commit -m "Add Task1.txt"		## Push to local repo => MUST commit to staging (local) before switch
+# git push -u origin main			## Push to remote repo ------------ Bo dong nay
+
+git checkout main					## Switch main (local)
+ls -la								## Show all files - Task1.txt exist
+
+git checkout task1
+echo "Update Task1.txt" >> Task1.txt
+git add .	
+git commit -m "Update Task1.txt"	## Push to local repo
+# git push -u origin main			## Push to remote repo ------------ Bo dong nay
+ls -la								## Show file task1
+
+git checkout task2
+ls -la								## NOT show file task1
+
+echo "Update Task1 again from Task2" >> Task1.txt	## Update
+echo "Task2 " >> Task2.txt							## Add new
+
+git add .	
+git commit -m "Update Task1.txt & Task2.txt"		## Push to local repo
+
+git checkout main
+git add .											## Update file CMD again
+git commit -m "Push all changes from Task1, 2"		## Push all to local repo
+git push -u origin main								## Push to remote repo => NOTHING because of not merged
+
+## Another example
+echo "Demo merge file" >> DemoMerge.txt
+git add .
+git commit -m "Commit Demo file"					## Push to local repo
+
+git checkout task1
+echo "Task 1 update" >> DemoMerge.txt
+git add .
+git commit -m "Task 1 Commit Demo"					## Commit file to Task1 repo
+
+git checkout task2
+echo "Task 1 update" >> DemoMerge.txt
+git add .
+git commit -m "Task 2 Commit Demo"					## Commit file to Task2 repo
+
+#########################
+## Lesson 5: Conflict Solving
+## merge branch1 to branch2 
+git checkout main
+
+git merge task1									## Auto-merging => CONFLICT (content): Merge conflict
+
+## Must edit DemoMerge.txt again (already have both content from 2 tasks)
+## then
+git add .
+git commit -m "Xu ly conflict"
+git push -u origin main								## Push to remote repo
+
+
+## branch has 02 status: not fully merged (NOT MERGE to branch master | main), fully merged (MERGED to branch master | main)
+## git branch -d branch_name (fully merged) OR git branch -D branch_name (not fully merged)
+
+## File has 03 status: Modified (Changed but not add or commit)| Staged (Alredy add, not committed) | Committed
+
+#########################
+## Lesson 6: Other advanced command
+## If you want to get latest code from branch master before making change:
+## git checkout <branch name>
+## git fetch ## <> git pull
+
+## git pull <remote>
+## git pull –no-commit
+## git pull –rebase
+## git pull –verbose
+
+## Link:
+## https://git-scm.com/docs/git
+## https://freetuts.net/hoc-git/git-can-ban
+## https://www.tutorialspoint.com/git/index.htm
+## https://xuanthulab.net/lenh-git-init-tao-du-an-git-moi.html
+## 
+## git fetch: https://vn.got-it.ai/blog/git-fetch-la-gi-phan-biet-git-fetch-va-git-pull
+## git pull: https://vn.got-it.ai/blog/git-pull-la-gi-mo-hinh-hoat-dong-cua-lenh-git-pull
+## Link video ref: https://www.youtube.com/watch?v=1JuYQgpbrW0&t=448s
+
+git add .
+git commit -m "Add link"
+git push -u origin main
