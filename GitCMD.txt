@@ -132,6 +132,7 @@ git push -u origin main								## Push to remote repo
 ## git pull –verbose
 
 ## Link:
+## https://www.toptal.com/developers/gitignore
 ## https://git-scm.com/docs/git
 ## https://freetuts.net/hoc-git/git-can-ban
 ## https://freetuts.net/git-lenh-merge-branch-xu-ly-conflict-1076.html
