@@ -37,7 +37,7 @@ git add .							## Add all files & folder: Working (local) -> Staging (local)
 
 git commit -m "1st commit"			## Staging (local) -> master (local)
 git branch -M main					## Force rename master (local) to main (local)
-git remote add origin https://github.com/o862757879/GitGuide.git		## Add tag origin for repo URL
+git remote add origin https://github.com/o862757879/GitGuide.git		## Add tag origin MAPPED repo URL
 git push -u origin main				## Push main (local) -> repo URL
 ## If not rename, we will have master branch, then repo remote will have 1 branch: master
 
